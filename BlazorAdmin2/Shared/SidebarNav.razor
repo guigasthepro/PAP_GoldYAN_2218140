@@ -25,23 +25,18 @@
         Interface
     </div>
     <!-- Nav Item - Pages Collapse Menu -->
-    <AuthorizeView Roles="admin">
-        <Authorized>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Clientes</span>
-                </a>
-                <div id="collapseClientes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons">Criar ficha de clientes</a>
-                        <a class="collapse-item" href="vclientes">Ver fichas de clientes</a>
-                    </div>
-                </div>
-            </li>
-        </Authorized>
-    </AuthorizeView>
-
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Clientes</span>
+        </a>
+        <div id="collapseClientes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="buttons">Criar ficha de clientes</a>
+                <a class="collapse-item" href="vclientes">Ver fichas de clientes</a>
+            </div>
+        </div>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEncomendas" aria-expanded="true" aria-controls="collapseTwo">
