@@ -1,4 +1,4 @@
-﻿@page "/Cfichalcliente"
+﻿@page "/icompra"
 @using BlazorAdmin2.Data
 @inject IJSRuntime JsRuntime
 
@@ -8,31 +8,31 @@
     <DataAnnotationsValidator/>
 
     <p>
-        <label for="nome">Nome:</label>
+        <label for="nome">Nome do Fornecedor:</label>
         <InputText id="nome" @bind-Value="cFichaCliente.Nome"/>
         <ValidationMessage For="@(() => cFichaCliente.Nome)"/>
     </p>
     <p>
-        <label for="telefone">Telefone:</label>
+        <label for="telefone">Ver com o pai:</label>
         <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone"/>
         <ValidationMessage For="@(() => cFichaCliente.Telefone)"/>
     </p>
     <p>
-        <label for="email">Email:</label>
+        <label for="email">Ver com o pai:</label>
         <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email"/>
         <ValidationMessage For="@(() => cFichaCliente.Email)"/>
     </p>
     <p>
-        <label for="morada">Morada:</label>
+        <label for="morada">Ver com o pai:</label>
         <InputText id="morada" @bind-Value="cFichaCliente.Morada"/>
         <ValidationMessage For="@(() => cFichaCliente.Morada)"/>
     </p>
     <p>
-        <label for="moradaopcional">Morada Opcional:</label>
+        <label for="moradaopcional">Ver com o pai:</label>
         <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional"/>
     </p>
     <p>
-        <label for="codigopostal">Codigo Postal:</label>
+        <label for="codigopostal">Ver com o pai:</label>
         <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal"/>
         <ValidationMessage For="@(() => cFichaCliente.Codigopostal)"/>
     </p>
