@@ -69,7 +69,7 @@ namespace BlazorAdmin2
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapDefaultControllerRoute();
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
