@@ -1,43 +1,55 @@
-﻿@page "/Cfichalcliente"
+﻿@page "/cfichacliente"
 @using BlazorAdmin2.Data
 @inject IJSRuntime JsRuntime
 
 <h1>Teste Formulario Para Clientes</h1>
+<div class="form-group ">
+    <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+        <DataAnnotationsValidator/>
 
-<EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
-    <DataAnnotationsValidator/>
+        <p>
+            <label for="nome">Nome:</label>
+            <InputText id="nome" @bind-Value="cFichaCliente.Nome"/>
+            <ValidationMessage For="@(() => cFichaCliente.Nome)"/>
+        </p>
+        <p>
+            <label for="telefone">Telefone:</label>
+            <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone"/>
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)"/>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email"/>
+            <ValidationMessage For="@(() => cFichaCliente.Email)"/>
+        </p>
+        <p>
+            <label for="morada">Morada:</label>
+            <InputText id="morada" @bind-Value="cFichaCliente.Morada"/>
+            <ValidationMessage For="@(() => cFichaCliente.Morada)"/>
+        </p>
+        <p>
+            <label for="moradaopcional">Morada Opcional:</label>
+            <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional"/>
+        </p>
+        <p>
+            <label for="codigopostal">Codigo Postal:</label>
+            <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal"/>
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)"/>
+        </p>
+        <p>
+            <label for="nif">Nif:</label>
+            <InputNumber id="nif" @bind-Value="cFichaCliente.Nif"/>
+            <ValidationMessage For="@(() => cFichaCliente.Nif)"/>
+        </p>
+        <p class="alert-heading">
+            <label for="Profissao">Profissão</label>
+            <InputText id="Profissao" @bind-Value="cFichaCliente.Profissao"/>
+            <ValidationMessage For="@(() => cFichaCliente.Profissao)"/>
+        </p>
+        <button type="submit">Submit</button>
+    </EditForm>
+</div>
 
-    <p>
-        <label for="nome">Nome:</label>
-        <InputText id="nome" @bind-Value="cFichaCliente.Nome"/>
-        <ValidationMessage For="@(() => cFichaCliente.Nome)"/>
-    </p>
-    <p>
-        <label for="telefone">Telefone:</label>
-        <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone"/>
-        <ValidationMessage For="@(() => cFichaCliente.Telefone)"/>
-    </p>
-    <p>
-        <label for="email">Email:</label>
-        <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email"/>
-        <ValidationMessage For="@(() => cFichaCliente.Email)"/>
-    </p>
-    <p>
-        <label for="morada">Morada:</label>
-        <InputText id="morada" @bind-Value="cFichaCliente.Morada"/>
-        <ValidationMessage For="@(() => cFichaCliente.Morada)"/>
-    </p>
-    <p>
-        <label for="moradaopcional">Morada Opcional:</label>
-        <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional"/>
-    </p>
-    <p>
-        <label for="codigopostal">Codigo Postal:</label>
-        <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal"/>
-        <ValidationMessage For="@(() => cFichaCliente.Codigopostal)"/>
-    </p>
-    <button type="submit">Submit</button>
-</EditForm>
 
 
 @code {

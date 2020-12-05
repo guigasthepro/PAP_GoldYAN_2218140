@@ -15,5 +15,7 @@ namespace BlazorAdmin2.Data
         public string Moradaopcional { get; set; }
         [Required]
         public string Codigopostal { get; set; }
+        public int Nif { get; set; }
+        public string Profissao { get; set; }
     }
 }
