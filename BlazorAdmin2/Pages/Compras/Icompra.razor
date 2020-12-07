@@ -1,52 +1,131 @@
 ﻿@page "/icompra"
 @using BlazorAdmin2.Data
+@using System.ComponentModel.DataAnnotations
 @inject IJSRuntime JsRuntime
 
-<h1>Teste Formulario Para Clientes</h1>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Cabeçalho Compra</h6>
+        </div>
+        <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+            <DataAnnotationsValidator />
 
-<EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
-    <DataAnnotationsValidator/>
 
-    <p>
-        <label for="nome">Nome do Fornecedor:</label>
-        <InputText id="nome" @bind-Value="cFichaCliente.Nome"/>
-        <ValidationMessage For="@(() => cFichaCliente.Nome)"/>
-    </p>
-    <p>
-        <label for="telefone">Ver com o pai:</label>
-        <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone"/>
-        <ValidationMessage For="@(() => cFichaCliente.Telefone)"/>
-    </p>
-    <p>
-        <label for="email">Ver com o pai:</label>
-        <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email"/>
-        <ValidationMessage For="@(() => cFichaCliente.Email)"/>
-    </p>
-    <p>
-        <label for="morada">Ver com o pai:</label>
-        <InputText id="morada" @bind-Value="cFichaCliente.Morada"/>
-        <ValidationMessage For="@(() => cFichaCliente.Morada)"/>
-    </p>
-    <p>
-        <label for="moradaopcional">Ver com o pai:</label>
-        <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional"/>
-    </p>
-    <p>
-        <label for="codigopostal">Ver com o pai:</label>
-        <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal"/>
-        <ValidationMessage For="@(() => cFichaCliente.Codigopostal)"/>
-    </p>
-    <button type="submit">Submit</button>
-</EditForm>
+            <label for="nome">Fornecedor</label>
+            <InputText id="nome" class="form-control" @bind-Value="cFichaCliente.Nome" />
+            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+
+
+            <label for="telefone">Numero</label>
+            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+
+
+            <label for="morada">Pagamento</label>
+            <InputSelect @bind-Value="cFichaCliente">
+                <option>Pronto Pagamento</option>
+                <option>Pagamento 15 dias</option>
+                <option>Pagamento 30 dias</option>
+                <option>Pagamento 60 dias</option>
+                <option>Pagamento 90 dias</option>
+                <option>Parcial 30+60</option>
+            </InputSelect>
+
+
+            <label for="moradaopcional">Data</label>
+            <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Nome"/>
+
+
+            <label for="codigopostal">Vencimento</label>
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+        </EditForm>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Formulario Compra</h6>
+        </div>
+        <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+            <DataAnnotationsValidator />
+
+            <label for="nome">Código</label>
+            <InputText id="nome" class="form-control" @bind-Value="cFichaCliente.Nome" />
+            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+
+            <label for="telefone">Descrição</label>
+            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+
+
+            <label for="email">Quantidade</label>
+            <InputText id="email" class="form-control" placeholder="Boas" @bind-Value="cFichaCliente.Email" />
+            <ValidationMessage For="@(() => cFichaCliente.Email)" />
+
+
+            <label for="morada">Preço Unitário</label>
+            <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
+            <ValidationMessage For="@(() => cFichaCliente.Morada)" />
+
+
+            <label for="moradaopcional">Preço Total</label>
+            <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Moradaopcional" />
+
+
+            <label for="codigopostal">Apontamentos</label>
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+        </EditForm>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Stock</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 101px;">Codigo</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 170px;">Descrição</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 71px;">Quantidade</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Preço Unitário</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Preço total</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 67px;">Apontamentos</th></tr>
+                            </thead>
+                            <tfoot>
+                                <tr><th rowspan="1" colspan="1">Código</th><th rowspan="1" colspan="1">Descrição</th><th rowspan="1" colspan="1">Quantidade</th><th rowspan="1" colspan="1">Preço Unitário</th><th rowspan="1" colspan="1">Preço total</th><th rowspan="1" colspan="1">Apontamentos</th></tr>
+                            </tfoot>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @code {
 
     private CFichaCliente cFichaCliente = new CFichaCliente();
 
+    public void variables()
+    {
+        string data;
+        data = DateTime.Now.ToString();
+
+
+    }
+
     private async Task InsertFichaCliente()
     {
-        // await JsRuntime.InvokeVoidAsync("setElementTextById", "resultJson", JsonSerializer.Serialize(cFichaCliente));
+    // await JsRuntime.InvokeVoidAsync("setElementTextById", "resultJson", JsonSerializer.Serialize(cFichaCliente));
     }
 
 }

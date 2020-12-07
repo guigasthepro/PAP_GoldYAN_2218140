@@ -5,32 +5,69 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Cabeçalho Encomenda</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Cabeçalho Produto</h6>
         </div>
         <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
             <DataAnnotationsValidator />
 
 
-            <label for="nome">IdCliente:</label>
+            <label for="nome">Referência Modelo</label>
             <InputText id="nome" @bind-Value="cFichaCliente.Nome" />
             <ValidationMessage For="@(() => cFichaCliente.Nome)" />
 
 
-            <label for="telefone">Telefone</label>
+            <label for="telefone">Código</label>
             <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone" />
             <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
 
 
-            <label for="morada">Email:</label>
+            <label for="morada">Classificação</label> 
+            <InputSelect @bind-Value="cFichaCliente.Profissao">
+                <option>Mercadorias</option>
+                <option>Matérias Primas</option>
+                <option>Sub Produto Desperdicios e Refugos</option>
+                <option>Produtos e trabalhos em curso</option>
+                <option>Serviços</option>
+                <option>Serviços Compostos</option>
+            </InputSelect>
+
+
+            <label for="moradaopcional">Unidade</label>
+            <InputSelect @bind-Value="cFichaCliente.Profissao">
+                <option>Total/Unidade</option>
+                <option>Quilates</option>
+                <option>Unidade</option> 
+            </InputSelect>
+
+
+            <label for="codigopostal">Descrição</label>
+            <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+            
+            <label for="nome">Tipo Produção</label>
+            <InputText id="nome" @bind-Value="cFichaCliente.Nome" />
+            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+
+            <label for="telefone">Tipo Peça</label>
+            <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone" />
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+
+
+            <label for="email">Fornecedor</label>
+            <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email" />
+            <ValidationMessage For="@(() => cFichaCliente.Email)" />
+
+
+            <label for="morada">Referência Fornecedor</label>
             <InputText id="morada" @bind-Value="cFichaCliente.Morada" />
             <ValidationMessage For="@(() => cFichaCliente.Morada)" />
 
 
-            <label for="moradaopcional">Morada</label>
+            <label for="moradaopcional">Contrastaria</label>
             <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional" />
 
 
-            <label for="codigopostal">Codigo Postal</label>
+            <label for="codigopostal">Guia de Fabrico</label>
             <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal" />
             <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
         </EditForm>
@@ -41,47 +78,49 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Formulario Encomenda</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Formulário Produto</h6>
         </div>
         <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
             <DataAnnotationsValidator />
 
             <label for="nome">Código</label>
-            <InputText id="nome" @bind-Value="cFichaCliente.Nome" />
+            <InputText id="nome" class="form-control" @bind-Value="cFichaCliente.Nome" />
             <ValidationMessage For="@(() => cFichaCliente.Nome)" />
 
             <label for="telefone">Referência</label>
-            <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone" />
+            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
             <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
 
 
             <label for="email">Descrição</label>
-            <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email" />
+            <InputText id="email" class="form-control" placeholder="Boas" @bind-Value="cFichaCliente.Email" />
             <ValidationMessage For="@(() => cFichaCliente.Email)" />
 
 
             <label for="morada">Quantidade</label>
-            <InputText id="morada" @bind-Value="cFichaCliente.Morada" />
+            <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
             <ValidationMessage For="@(() => cFichaCliente.Morada)" />
 
 
             <label for="moradaopcional">Peso</label>
-            <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional" />
+            <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Moradaopcional" />
 
 
             <label for="codigopostal">Preco</label>
-            <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal" />
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
             <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
 
 
             <label for="codigopostal">Data</label>
-            <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal" />
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
             <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
 
             <label for="codigopostal">Apontamentos</label>
-            <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal" />
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
             <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
             <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" class="btn btn-primary">Inserir</button>
         </EditForm>
     </div>
 </div>
@@ -90,7 +129,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Encomenda</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Produto</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -98,10 +137,10 @@
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
-                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 101px;">IdModelo</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 170px;">Descrição</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 71px;">Peso</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Unidade</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Fornecedor</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 67px;">Data Criação</th></tr>
+                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 101px;">Componente</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 170px;">Colaborador</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 71px;">Classificação</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Código</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Descrição</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to    sort column ascending" style="width: 67px;">QTD</th></tr>
                             </thead>
                             <tfoot>
-                                <tr><th rowspan="1" colspan="1">IdModelo</th><th rowspan="1" colspan="1">Descrição</th><th rowspan="1" colspan="1">Peso</th><th rowspan="1" colspan="1">Unidade</th><th rowspan="1" colspan="1">Fornecedor</th><th rowspan="1" colspan="1">Data Criação</th></tr>
+                                <tr><th rowspan="1" colspan="1">Componente</th><th rowspan="1" colspan="1">Colaborador</th><th rowspan="1" colspan="1">Classificação</th><th rowspan="1" colspan="1">Código</th><th rowspan="1" colspan="1">Descrição</th><th rowspan="1" colspan="1">QTD</th></tr>
                             </tfoot>
                             <tbody>
                             </tbody>

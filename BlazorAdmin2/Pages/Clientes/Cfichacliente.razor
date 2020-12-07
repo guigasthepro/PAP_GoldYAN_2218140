@@ -2,8 +2,11 @@
 @using BlazorAdmin2.Data
 @inject IJSRuntime JsRuntime
 
-<h1>Teste Formulario Para Clientes</h1>
-<div class="form-group ">
+<div class="container-fluid">
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ficha do Cliente</h6>
+    </div>
     <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
         <DataAnnotationsValidator/>
 
@@ -46,8 +49,9 @@
             <InputText id="Profissao" @bind-Value="cFichaCliente.Profissao"/>
             <ValidationMessage For="@(() => cFichaCliente.Profissao)"/>
         </p>
-        <button type="submit">Submit</button>
+        <button type="submit">Criar</button>
     </EditForm>
+</div>
 </div>
 
 

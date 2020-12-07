@@ -2,42 +2,80 @@
 @using BlazorAdmin2.Data
 @inject IJSRuntime JsRuntime
 
-<h1>Teste Formulario Para Clientes</h1>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Cabeçalho Encomenda</h6>
+        </div>
+        <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+            <DataAnnotationsValidator />
 
-<EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
-    <DataAnnotationsValidator/>
 
-    <p>
-        <label for="nome">Nome:</label>
-        <InputText id="nome" @bind-Value="cFichaCliente.Nome"/>
-        <ValidationMessage For="@(() => cFichaCliente.Nome)"/>
-    </p>
-    <p>
-        <label for="telefone">Telefone:</label>
-        <InputNumber id="telefone" @bind-Value="cFichaCliente.Telefone"/>
-        <ValidationMessage For="@(() => cFichaCliente.Telefone)"/>
-    </p>
-    <p>
-        <label for="email">Email:</label>
-        <InputText id="email" placeholder="Boas" @bind-Value="cFichaCliente.Email"/>
-        <ValidationMessage For="@(() => cFichaCliente.Email)"/>
-    </p>
-    <p>
-        <label for="morada">Morada:</label>
-        <InputText id="morada" @bind-Value="cFichaCliente.Morada"/>
-        <ValidationMessage For="@(() => cFichaCliente.Morada)"/>
-    </p>
-    <p>
-        <label for="moradaopcional">Morada Opcional:</label>
-        <InputText id="moradaopcional" @bind-Value="cFichaCliente.Moradaopcional"/>
-    </p>
-    <p>
-        <label for="codigopostal">Codigo Postal:</label>
-        <InputText id="codigopostal" @bind-Value="cFichaCliente.Codigopostal"/>
-        <ValidationMessage For="@(() => cFichaCliente.Codigopostal)"/>
-    </p>
-    <button type="submit">Submit</button>
-</EditForm>
+            <label for="nome">Codigo</label>
+            <InputText id="nome" class="form-control" @bind-Value="cFichaCliente.Nome" />
+            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+
+
+            <label for="telefone">Nome</label>
+            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+
+
+            <label for="morada">Sobrenome</label>
+            <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
+            <ValidationMessage For="@(() => cFichaCliente.Morada)" />
+        </EditForm>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Formulario Encomenda</h6>
+        </div>
+        <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+            <DataAnnotationsValidator />
+
+            <label for="nome">Denominação</label>
+            <InputText id="nome" class="form-control" @bind-Value="cFichaCliente.Nome" />
+            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+
+            <label for="telefone">Telefone</label>
+            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
+            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+
+
+            <label for="email">Telemovel</label>
+            <InputText id="email" class="form-control" placeholder="Boas" @bind-Value="cFichaCliente.Email" />
+            <ValidationMessage For="@(() => cFichaCliente.Email)" />
+
+
+            <label for="morada">Morada</label>
+            <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
+            <ValidationMessage For="@(() => cFichaCliente.Morada)" />
+
+
+            <label for="moradaopcional">Codigo Postal</label>
+            <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Moradaopcional" />
+
+
+            <label for="codigopostal">Pais</label>
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+
+
+            <label for="codigopostal">Email</label>
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+
+            <label for="codigopostal">Apontamentos</label>
+            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>
+    </div>
+</div>
 
 
 @code {
