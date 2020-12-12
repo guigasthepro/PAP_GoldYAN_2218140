@@ -11,7 +11,7 @@
             <DataAnnotationsValidator />
 
 
-            <label for="nome">IdCliente:zz</label>
+            <label for="nome">IdCliente</label>
             <InputText id="nome"class="form-control" @bind-Value="cFichaCliente.Nome" />
             <ValidationMessage For="@(() => cFichaCliente.Nome)" />
 
@@ -21,7 +21,7 @@
             <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
 
 
-            <label for="morada">Email:</label>
+            <label for="morada">Email</label>
             <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
             <ValidationMessage For="@(() => cFichaCliente.Morada)" />
 
