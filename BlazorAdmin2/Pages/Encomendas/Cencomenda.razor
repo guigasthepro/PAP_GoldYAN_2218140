@@ -7,35 +7,47 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Cabeçalho Encomenda</h6>
         </div>
-        <EditForm Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+        <EditForm class="form" Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
             <DataAnnotationsValidator />
+            <div class="form-row p-sm-1">
+                <label for="nome" class="col-sm-auto col-form-label">Nome:</label>
+                <div class="col-sm-5">
+                    <InputText id="nome" class="form-control w-25" @bind-Value="cFichaCliente.Nome" />
+                    <ValidationMessage For="@(() => cFichaCliente.Nome)" />
+                </div>
+            </div>
+            <div class="form-row p-sm-1">
+                <label for="nome" class="col-sm-auto col-form-label">Telefone:</label>
+                <div class="col-sm-5">
+                    <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
+                    <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
+                </div>
+            </div>
+            <div class="form-row p-sm-1">
+                <label for="nome" class="col-sm-auto col-form-label">Email:</label>
+                <div class="col-sm-5">
+                    <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
+                    <ValidationMessage For="@(() => cFichaCliente.Morada)" />
+                </div>
+            </div>
+            <div class="form-row p-sm-1">
+                <label for="nome" class="col-sm-auto col-form-label">Morada:</label>
+                <div class="col-sm-5">
+                    <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Moradaopcional" />
+                </div>
+            </div>
+            <div class="form-row p-sm-1">
+                <label for="nome" class="col-sm-auto col-form-label">Codigo Postal:</label>
+                <div class="col-sm-5">
+                    <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
+                    <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
+                </div>
+            </div>
 
-
-            <label for="nome">IdCliente</label>
-            <InputText id="nome"class="form-control" @bind-Value="cFichaCliente.Nome" />
-            <ValidationMessage For="@(() => cFichaCliente.Nome)" />
-
-
-            <label for="telefone">Telefone</label>
-            <InputNumber id="telefone" class="form-control" @bind-Value="cFichaCliente.Telefone" />
-            <ValidationMessage For="@(() => cFichaCliente.Telefone)" />
-
-
-            <label for="morada">Email</label>
-            <InputText id="morada" class="form-control" @bind-Value="cFichaCliente.Morada" />
-            <ValidationMessage For="@(() => cFichaCliente.Morada)" />
-
-
-            <label for="moradaopcional">Morada</label>
-            <InputText id="moradaopcional" class="form-control" @bind-Value="cFichaCliente.Moradaopcional" />
-
-
-            <label for="codigopostal">Codigo Postal</label>
-            <InputText id="codigopostal" class="form-control" @bind-Value="cFichaCliente.Codigopostal" />
-            <ValidationMessage For="@(() => cFichaCliente.Codigopostal)" />
         </EditForm>
+
+        </div>     
     </div>
-</div>
 
 
         <div class="container-fluid">
