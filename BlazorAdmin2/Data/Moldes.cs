@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
-    public class cmoldes
+    public class Moldes
     {
         public string Codigo { get; set; }
         public string Descricao { get; set; }

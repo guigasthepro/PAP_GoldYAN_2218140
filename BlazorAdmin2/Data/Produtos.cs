@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
-    public class cprodutos
+    public class Produtos
     {
         public string RefModelo { get; set; }
         public string Codigo{ get; set; }

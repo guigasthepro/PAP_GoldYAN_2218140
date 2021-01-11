@@ -2,7 +2,7 @@
 
 namespace BlazorAdmin2.Data
 {
-    public class CFichaCliente
+    public class Clientes
     {
         [Required]
         public string Nome { get; set; }

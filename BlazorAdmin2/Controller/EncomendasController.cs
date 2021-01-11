@@ -10,44 +10,38 @@ namespace BlazorAdmin2.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CFichaClienteController : ControllerBase
+    public class EncomendasController : ControllerBase
     {
-        // GET: api/<CFicha>
+        // GET: api/<Encomendas>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<CFicha>/5
+        // GET api/<Encomendas>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<CFicha>
+        // POST api/<Encomendas>
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            
-            
         }
 
-        // PUT api/<CFicha>/5
+        // PUT api/<Encomendas>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
-            
-            
         }
 
-        // DELETE api/<CFicha>/5
+        // DELETE api/<Encomendas>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            
-            
         }
     }
 }

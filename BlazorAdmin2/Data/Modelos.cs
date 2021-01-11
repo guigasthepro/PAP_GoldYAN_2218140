@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
-    public class cmodelo
+    public class Modelos
     {
         [Required]
         public string referencia { get; set; }

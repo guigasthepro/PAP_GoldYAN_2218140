@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
-    public class cencomenda
+    public class Encomendas
     {
         //Formulário Encomenda
         [Required]

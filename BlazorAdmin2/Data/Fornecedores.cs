@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
-    public class cfornecedores
+    public class Fornecedores
     {
         //Cabeçalho Encomenda//
         [Required]
