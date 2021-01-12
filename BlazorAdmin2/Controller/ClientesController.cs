@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BlazorAdmin2.Data;
+using MySql.Data.MySqlClient;
+using Dapper.Contrib.Extensions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,42 +15,108 @@ namespace BlazorAdmin2.Controller
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        // GET: api/<CFicha>
+        // GET: api/<PresentesController>
+        /// <summary>
+        /// Recebe os presentes
+        /// </summary>
+        /// <returns>Presentes</returns>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Clientes> Get()
         {
-            return new string[] { "value1", "value2" };
+            MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = painatal; Uid = root; Pwd =; ");
+            var res = DBConn.GetAll<Clientes>();
+
+
+
+            return res;
         }
 
-        // GET api/<CFicha>/5
+        // GET api/<PresentesController>/
+        /// <summary>
+        /// Recebe apenas o presente daquele id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>O Presente</returns>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Clientes Get(int id)
         {
-            return "value";
+            MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = painatal; Uid = root; Pwd =; ");
+            var res = DBConn.Get<Clientes>(id);
+
+
+            return res;
         }
 
-        // POST api/<CFicha>
+
+        // POST api/<PresentesController>
+        /// <summary>
+        /// Cria um presente na base de dados
+        /// </summary>
+        /// <param name="presente"></param>
+        /// <returns>O presente</returns>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Clientes Post([FromBody] Clientes cliente)
         {
-            
-            
-        }
+            MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = goldyan; Uid = root; Pwd =; ");
 
-        // PUT api/<CFicha>/5
+            var idNewRec = DBConn.Insert<Clientes>(cliente);
+
+            var res = DBConn.Get<Clientes>(idNewRec);
+
+            return res;
+        }
+        /// <summary>
+        /// Dá update ao id do presente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="presente"></param>
+        /// <returns>O presente atualizado</returns>
+        // PUT api/<PresentesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Clientes> Put(int id, [FromBody] Clientes cliente)
         {
-            
-            
-        }
+            MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = painatal; Uid = root; Pwd =; ");
 
-        // DELETE api/<CFicha>/5
+            var recLido = DBConn.Get<Clientes>(id);
+
+            if (recLido != null)
+            {
+                //recLido.Nomes = presente.Nomes;
+                //recLido.Quantidade = presente.Quantidade;
+
+                bool updated = DBConn.Update(recLido);
+
+                return Ok(recLido);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+
+
+
+
+        }
+        /// <summary>
+        /// Dá delete ao presente escolhido
+        /// </summary>
+        /// <param name="id"></param>
+        // DELETE api/<PresentesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            
-            
+            MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = painatal; Uid = root; Pwd =; ");
+            var res = DBConn.Get<Clientes>(id);
+            if (res != null)
+            {
+                DBConn.Delete(res);
+            }
+            else
+            {
+
+            }
+
         }
     }
 }

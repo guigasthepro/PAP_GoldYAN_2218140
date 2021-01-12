@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,27 +8,27 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
+    [Table ("fornecedores")]
     public class Fornecedores
     {
         //Cabeçalho Encomenda//
+        [ExplicitKey]
         [Required]
-        public string CodigoFornecedor { get; set; }
+        public int CodigoFornecedor { get; set; }
 
         [Required]
-        public string Nome { get; set; }
-
-        public string Sobrenome { get; set; }
+        public int idbanco { get; set; }
+        [Required]
+        public string alcunhafornecedor { get; set; }
 
         //Formulario Encomenda//
-
-        public string designacao { get; set; }
-        public int telefone { get; set; }
+        public string nomefornecedor { get; set; }
+        public int datacriada { get; set; }
         public int telemovel { get; set; }
+        public int telefone { get; set; }
         public string morada { get; set; }
-        public string codigopostal { get; set; }
-        public string pais { get; set; }
-        public string email { get; set; }
-        public string apontamentos { get; set; }
-
+        public int idcodigopostal { get; set; }
+        public int nif { get; set; }
+        public string iban { get; set; }
     }
 }

@@ -1,21 +1,27 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
+    [Table("produtos")]
     public class Produtos
     {
-        public string RefModelo { get; set; }
-        public string Codigo{ get; set; }
-        public string Classificacao { get; set; }
-        public string unidade { get; set; }
-        public string tipoproducao { get; set; }
-        public string tipopeca{ get; set; }
-        public string fornecedor { get; set; }
-        public string reffornecedor { get; set; }
+        [ExplicitKey]
+        public int produtoid { get; set; }
+        public int idfornecedor{ get; set; }
+        public int idfabrico { get; set; }
+        public string alcunha { get; set; }
+        public string nome { get; set; }
+        public int quantidade{ get; set; }
         public string contrastaria { get; set; }
-        public string guiafabrico { get; set; }
+        public int preco { get; set; }
+        public int pvp { get; set; }
+        public int customedio { get; set; }
+        public int feitio { get; set; }
+        public int feitiograma { get; set; }
+        public int cotacao { get; set; }
     }
 }

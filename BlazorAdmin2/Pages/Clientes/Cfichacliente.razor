@@ -1,5 +1,6 @@
 ﻿@page "/cfichacliente"
 @using BlazorAdmin2.Data
+@using BlazorAdmin2.Controller
 @inject IJSRuntime JsRuntime
 
 <div class="container-fluid">
@@ -7,7 +8,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Ficha do Cliente</h6>
         </div>
-        <EditForm class="form-group" Model="@cFichaCliente" OnValidSubmit="@InsertFichaCliente">
+        <EditForm class="form-group" Model="@cFichaCliente" OnValidSubmit="@ClientCreate">
             <DataAnnotationsValidator />
             <div class="form-group m-2 p-1">
                 <label class="" for="nome">Nome:</label>
@@ -61,9 +62,10 @@
 
     private Clientes cFichaCliente = new Clientes();
 
-    private async Task InsertFichaCliente()
-    {
-        // await JsRuntime.InvokeVoidAsync("setElementTextById", "resultJson", JsonSerializer.Serialize(cFichaCliente));
-    }
+    ClientesController CC = new ClientesController();
 
+    public void ClientCreate()
+    {
+        CC.Post(cFichaCliente);
+    }
 }

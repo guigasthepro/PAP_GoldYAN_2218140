@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
+    [Table ("modelos")]
     public class Modelos
     {
+        [ExplicitKey]
         [Required]
-        public string referencia { get; set; }
-
-        public string unidade { get; set; }
-        public string descricao { get; set; }
-        public string tipoproducao { get; set; }
-        public string tipopeca { get; set; }
-        public string fornecedor { get; set; }
-        public string reffornecedor { get; set; }
+        public int idmodelo { get; set; }
+        public int idmolde { get; set; }
+        public string alcunha { get; set; }
+        public string nome { get; set; }
+        public int idmateria { get; set; }
+        public int idservicos { get; set; }
+        public int produtoidf { get; set; }
 
     }
 }

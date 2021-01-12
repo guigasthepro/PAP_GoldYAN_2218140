@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorAdmin2.Data
 {
+    [Table ("molde")]
     public class Moldes
     {
-        public string Codigo { get; set; }
-        public string Descricao { get; set; }
-        public string TipoProducao { get; set; }
-        public string Tipopeca { get; set; }
-        public string Gaveta { get; set; }
-        public string tempo { get; set; }
-        public string peso { get; set; }
+        [ExplicitKey]
+        public int idmolde { get; set; }
+        public string codigo { get; set; }
+        public string descricao { get; set; }
+        public int idfproduto { get; set; }
+        public int Gaveta { get; set; }
+        public DateTime tempo { get; set; }
+        public int peso { get; set; }
     }
 }
