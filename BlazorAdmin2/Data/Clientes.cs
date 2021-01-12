@@ -21,6 +21,6 @@ namespace BlazorAdmin2.Data
         public string Codigopostal { get; set; }
         [Required]
         public int Nif { get; set; }
-        public string Profissao { get; set; }
+        public string profissao { get; set; }
     }
 }
