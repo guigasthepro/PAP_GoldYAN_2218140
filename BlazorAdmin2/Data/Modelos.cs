@@ -18,7 +18,7 @@ namespace BlazorAdmin2.Data
         public string nome { get; set; }
         public int idmateria { get; set; }
         public int idservicos { get; set; }
-        public int produtoidf { get; set; }
+        public int idfproduto { get; set; }
 
     }
 }

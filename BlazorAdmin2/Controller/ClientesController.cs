@@ -42,6 +42,7 @@ namespace BlazorAdmin2.Controller
         {
             MySqlConnection DBConn = new MySqlConnection("Server = localhost; Database = painatal; Uid = root; Pwd =; ");
             var res = DBConn.Get<Clientes>(id);
+            
 
 
             return res;

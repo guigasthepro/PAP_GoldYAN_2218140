@@ -14,14 +14,11 @@ namespace BlazorAdmin2.Data
         //Cabeçalho Encomenda//
         [ExplicitKey]
         [Required]
-        public int CodigoFornecedor { get; set; }
-
+        public int idfornecedorr { get; set; }
         [Required]
         public int idbanco { get; set; }
         [Required]
         public string alcunhafornecedor { get; set; }
-
-        //Formulario Encomenda//
         public string nomefornecedor { get; set; }
         public int datacriada { get; set; }
         public int telemovel { get; set; }
